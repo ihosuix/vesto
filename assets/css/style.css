@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Dana';
+  src: url('../fonts/DanaVF.woff2') format('woff2-variations'),
+       url('../fonts/Dana-Variable.woff') format('woff-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: 'Dana', sans-serif;
+    font-feature-settings: "ss02";
+  }
+}
+
 @theme {
   --color-white: #FFFFFF;
   --color-slate: #7F8FA6;
