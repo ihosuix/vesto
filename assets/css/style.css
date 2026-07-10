@@ -9,6 +9,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'DanaFat';
+  src: url('../fonts/Dana-fat.woff2') format('woff2');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html {
     font-family: 'Dana', sans-serif;
@@ -21,4 +29,5 @@
   --color-slate: #7F8FA6;
   --color-dark: #1C2B3A;
   --color-sage: #7D9E8C;
+  --font-fat: 'DanaFat', sans-serif;
 }
