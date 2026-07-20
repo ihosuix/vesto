@@ -3,10 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vesto | محصول</title>
+  <title>Vesto | نام محصول</title>
   <script type="module" src="/assets/js/main.js"></script>
 </head>
-<body>
+<body class="p-8">
+
+  <!-- هدر -->
+    <nav>
+      <div class="flex flex-row justify-between items-center">
+        <button>
+          <img src="/assets/icons/meno.svg" alt="منو" />
+        </button>
+
+        <a href="/" class="font-bold">وستـو</a>
+
+        <a href="#">
+          <img src="/assets/icons/user.svg" alt="حساب کاربری" />
+        </a>
+      </div>
+    </nav>
+
+  <main class="flex flex-col mt-8">
+
+    <!-- گالری تمام عرض -->
+    <div class="relative">
+
+      <!-- اسلایدر عکس‌ها -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide rounded-2xl">
+        <div class="min-w-full snap-start aspect-[3/4]">
+          <img src="/assets/images/sina-malek-aMPqIrcEgIE-unsplash-compressed 1.jpg" alt="محصول" class="w-full h-full object-cover">
+        </div>
+        <div class="min-w-full snap-start aspect-[3/4]">
+          <img src="/assets/images/tamara-harhai-YDxW47w8ANg-unsplash 1.png" alt="محصول" class="w-full h-full object-cover">
+        </div>
+        <div class="min-w-full snap-start aspect-[3/4]">
+          <img src="/assets/images/peter-chirkov-heqtjTHc15w-unsplash-compressed 1.jpg" alt="محصول" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <!-- دکمه برگشت -->
+      <button onclick="history.back()" class="absolute top-4 right-4 bg-white/90 rounded-full p-2">
+        <img src="/assets/icons/arrow-right.svg" alt="برگشت" class="w-5 h-5">
+      </button>
+
+      <!-- نقطه‌های گالری -->
+      <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-x-1.5">
+        <div class="w-4 h-1 rounded-full bg-dark"></div>
+        <div class="w-1 h-1 rounded-full bg-dark/30"></div>
+        <div class="w-1 h-1 rounded-full bg-dark/30"></div>
+      </div>
+
+    </div>
+
+    <!-- جزئیات محصول -->
+    <div class="flex flex-col gap-y-6 p-4">
+
+      <!-- اسم و امتیاز -->
+      <div class="flex flex-col gap-y-2">
+        <div class="flex justify-between items-start">
+          <div class="flex flex-col gap-y-1">
+            <span class="text-slate text-xs tracking-widest">وستو کالکشن</span>
+            <h1 class="text-dark font-fat text-2xl">نام محصول</h1>
+          </div>
+          <div class="flex flex-col items-end gap-y-1">
+            <div class="flex items-center gap-x-1">
+              <img src="/assets/icons/Star.svg" alt="" class="w-3 h-3">
+              <span class="text-dark text-xs font-bold">۴.۸</span>
+            </div>
+            <span class="text-slate text-xs">۱۲۴ نظر</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- قیمت -->
+      <div class="flex items-center gap-x-3">
+        <span class="text-dark font-fat text-1xl">۴۵۰,۰۰۰ تومان</span>
+        <span class="text-slate text-sm line-through">۶۰۰,۰۰۰</span>
+        <span class="bg-sage/20 text-sage text-xs font-bold px-2 py-0.5 rounded-full">۲۵٪ تخفیف</span>
+      </div>
+
+      <!-- خط جدا کننده -->
+      <div class="w-full h-px bg-dark/10"></div>
+
+      <!-- انتخاب رنگ -->
+      <div class="flex flex-col gap-y-3">
+        <div class="flex justify-between items-center">
+          <span class="text-dark text-sm font-bold">رنگ</span>
+          <span class="text-slate text-xs">مشکی انتخاب شده</span>
+        </div>
+        <div class="flex gap-x-3">
+          <button class="w-7 h-7 rounded-full bg-dark ring-2 ring-offset-2 ring-dark"></button>
+          <button class="w-7 h-7 rounded-full bg-slate"></button>
+          <button class="w-7 h-7 rounded-full bg-sage"></button>
+          <button class="w-7 h-7 rounded-full bg-white border border-dark/20"></button>
+        </div>
+      </div>
+
+      <!-- خط جدا کننده -->
+      <div class="w-full h-px bg-dark/10"></div>
+
+      <!-- انتخاب سایز -->
+      <div class="flex flex-col gap-y-3">
+        <div class="flex justify-between items-center">
+          <span class="text-dark text-sm font-bold">سایز</span>
+          <a href="#" class="text-sage text-xs border-b border-sage">راهنمای سایز</a>
+        </div>
+        <div class="flex gap-x-2">
+          <button class="border border-dark/20 text-slate text-xs px-4 py-2 rounded-full">XS</button>
+          <button class="border border-dark text-dark text-xs font-bold px-4 py-2 rounded-full">S</button>
+          <button class="border border-dark/20 text-slate text-xs px-4 py-2 rounded-full">M</button>
+          <button class="border border-dark/20 text-slate text-xs px-4 py-2 rounded-full">L</button>
+          <button class="border border-dark/20 text-slate text-xs px-4 py-2 rounded-full">XL</button>
+        </div>
+      </div>
+
+      <!-- خط جدا کننده -->
+      <div class="w-full h-px bg-dark/10"></div>
+
+      <!-- توضیحات -->
+      <div class="flex flex-col gap-y-3">
+        <span class="text-dark text-sm font-bold">توضیحات</span>
+        <p class="text-slate text-sm leading-relaxed">
+          این محصول از بهترین متریال‌های موجود ساخته شده و با دقت بالا طراحی شده است. مناسب برای استفاده روزانه و مجلسی.
+        </p>
+      </div>
+
+      <!-- خط جدا کننده -->
+      <div class="w-full h-px bg-dark/10"></div>
+
+      <!-- مشخصات -->
+      <div class="flex flex-col gap-y-3">
+        <span class="text-dark text-sm font-bold">مشخصات</span>
+        <div class="flex flex-col gap-y-2">
+          <div class="flex justify-between items-center py-2 border-b border-dark/10">
+            <span class="text-slate text-xs">جنس</span>
+            <span class="text-dark text-xs font-bold">پنبه ۱۰۰٪</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-dark/10">
+            <span class="text-slate text-xs">کشور سازنده</span>
+            <span class="text-dark text-xs font-bold">ایران</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-dark/10">
+            <span class="text-slate text-xs">کد محصول</span>
+            <span class="text-dark text-xs font-bold">VST-۱۲۳۴</span>
+          </div>
+          <div class="flex justify-between items-center py-2">
+            <span class="text-slate text-xs">موجودی</span>
+            <span class="text-sage text-xs font-bold">موجود</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- خط جدا کننده -->
+      <div class="w-full h-px bg-dark/10"></div>
+
+      <!-- نظرات -->
+      <div class="flex flex-col gap-y-4">
+        <div class="flex justify-between items-center">
+          <span class="text-dark text-sm font-bold">نظرات</span>
+          <a href="#" class="text-sage text-xs border-b border-sage">همه نظرات</a>
+        </div>
+
+        <!-- یه نظر -->
+        <div class="flex flex-col gap-y-2 p-3 bg-gray-50 rounded-2xl">
+          <div class="flex justify-between items-center">
+            <span class="text-dark text-xs font-bold">سارا م.</span>
+            <div class="flex items-center gap-x-1">
+              <img src="/assets/icons/Star.svg" alt="" class="w-3 h-3">
+              <span class="text-dark text-xs">۵</span>
+            </div>
+          </div>
+          <p class="text-slate text-xs leading-relaxed">کیفیت فوق‌العاده‌ست، دقیقاً همون چیزیه که توی عکس بود.</p>
+        </div>
+
+        <!-- نظر دوم -->
+        <div class="flex flex-col gap-y-2 p-3 bg-gray-50 rounded-2xl">
+          <div class="flex justify-between items-center">
+            <span class="text-dark text-xs font-bold">نیلوفر ک.</span>
+            <div class="flex items-center gap-x-1">
+              <img src="/assets/icons/Star.svg" alt="" class="w-3 h-3">
+              <span class="text-dark text-xs">۴</span>
+            </div>
+          </div>
+          <p class="text-slate text-xs leading-relaxed">خیلی راحته و رنگش دقیقاً همونیه که تو سایت بود.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- دکمه ثابت پایین -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-dark/10 p-4">
+    <div class="flex gap-x-3">
+      <button class="flex-1 bg-dark text-white text-sm font-bold py-3.5 rounded-full">
+        افزودن به سبد خرید
+      </button>
+      <button class="border border-dark/20 rounded-full px-4">
+        <img src="/assets/icons/shopping-bag.svg" alt="" class="w-5 h-5">
+      </button>
+    </div>
+  </div>
 
 </body>
 </html>
