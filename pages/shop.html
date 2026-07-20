@@ -1,12 +1,411 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vesto | فروشگاه</title>
-  <script type="module" src="/assets/js/main.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vesto | فروشگاه</title>
+    <script type="module" src="/assets/js/main.js"></script>
+  </head>
+  <body class="p-8">
+    <!-- هدر -->
+    <nav>
+      <div class="flex flex-row justify-between items-center">
+        <button>
+          <img src="/assets/icons/meno.svg" alt="منو" />
+        </button>
 
-</body>
+        <a href="/" class="font-bold">وستـو</a>
+
+        <a href="#">
+          <img src="/assets/icons/user.svg" alt="حساب کاربری" />
+        </a>
+      </div>
+    </nav>
+
+    <main class="flex flex-col pt-8 gap-y-16">
+      <!-- نوار فیلتر و مرتب‌سازی -->
+      <div class="flex justify-between items-center">
+        <!-- دکمه فیلتر -->
+        <button
+          id="filterBtn"
+          class="flex items-center gap-x-2 border border-dark/20 rounded-full px-4 py-2"
+        >
+          <img src="/assets/icons/filter-search.svg" alt="" class="w-4 h-4" />
+          <span class="text-dark text-sm font-bold">فیلتر</span>
+        </button>
+
+        <!-- مرتب‌سازی -->
+        <button
+          id="sortBtn"
+          class="flex items-center gap-x-2 border border-dark/20 rounded-full px-4 py-2"
+        >
+          <img src="/assets/icons/arrow-down.svg" alt="" class="w-4 h-4" />
+          <span class="text-dark text-sm font-bold">مرتب‌سازی</span>
+        </button>
+      </div>
+
+      <!-- پنل فیلتر -->
+      <div
+        id="filterPanel"
+        class="hidden flex-col gap-y-6 bg-white border border-dark/10 rounded-2xl p-5"
+      >
+        <!-- دسته‌بندی -->
+        <div class="flex flex-col gap-y-3">
+          <span class="text-dark text-sm font-bold">دسته‌بندی</span>
+          <div class="flex flex-wrap gap-2">
+            <button
+              class="border border-dark text-dark text-xs font-bold px-3 py-1.5 rounded-full"
+            >
+              همه
+            </button>
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              پوشاک
+            </button>
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              مانتو و کت
+            </button>
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              کیف و کفش
+            </button>
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              اکسسوری
+            </button>
+          </div>
+        </div>
+
+        <!-- خط جدا کننده -->
+        <div class="w-full h-px bg-dark/10"></div>
+
+        <!-- رنگ -->
+        <div class="flex flex-col gap-y-3">
+          <span class="text-dark text-sm font-bold">رنگ</span>
+          <div class="flex gap-x-3">
+            <button
+              class="w-6 h-6 rounded-full bg-dark ring-2 ring-offset-2 ring-dark"
+            ></button>
+            <button class="w-6 h-6 rounded-full bg-slate"></button>
+            <button class="w-6 h-6 rounded-full bg-sage"></button>
+            <button
+              class="w-6 h-6 rounded-full bg-white border border-dark/20"
+            ></button>
+          </div>
+        </div>
+
+        <!-- خط جدا کننده -->
+        <div class="w-full h-px bg-dark/10"></div>
+
+        <!-- سایز -->
+        <div class="flex flex-col gap-y-3">
+          <span class="text-dark text-sm font-bold">سایز</span>
+          <div class="flex flex-wrap gap-2">
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              XS
+            </button>
+            <button
+              class="border border-dark text-dark text-xs font-bold px-3 py-1.5 rounded-full"
+            >
+              S
+            </button>
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              M
+            </button>
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              L
+            </button>
+            <button
+              class="border border-dark/20 text-slate text-xs px-3 py-1.5 rounded-full"
+            >
+              XL
+            </button>
+          </div>
+        </div>
+
+        <!-- خط جدا کننده -->
+        <div class="w-full h-px bg-dark/10"></div>
+
+        <!-- دکمه اعمال -->
+        <button
+          class="w-full bg-dark text-white text-sm font-bold py-3 rounded-full"
+        >
+          اعمال فیلتر
+        </button>
+      </div>
+
+      <!-- پنل مرتب‌سازی -->
+      <div
+        id="sortPanel"
+        class="hidden flex-col gap-y-2 bg-white border border-dark/10 rounded-2xl p-5"
+      >
+        <button
+          class="flex justify-between items-center py-2 border-b border-dark/10"
+        >
+          <span class="text-dark text-sm font-bold">جدیدترین</span>
+          <div class="w-4 h-4 rounded-full border-2 border-dark"></div>
+        </button>
+        <button
+          class="flex justify-between items-center py-2 border-b border-dark/10"
+        >
+          <span class="text-slate text-sm">ارزان‌ترین</span>
+          <div class="w-4 h-4 rounded-full border-2 border-dark/20"></div>
+        </button>
+        <button class="flex justify-between items-center py-2">
+          <span class="text-slate text-sm">گران‌ترین</span>
+          <div class="w-4 h-4 rounded-full border-2 border-dark/20"></div>
+        </button>
+      </div>
+
+      <!-- گرید محصولات -->
+      <div class="grid grid-cols-2 gap-3">
+        <!-- کارت ۱ -->
+        <div class="flex flex-col gap-y-2 group">
+          <div
+            class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-50"
+          >
+            <img
+              src="/assets/images/sina-malek-aMPqIrcEgIE-unsplash-compressed 1.jpg"
+              alt="نام محصول"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute top-3 right-3 bg-dark text-white text-xs px-2 py-0.5 rounded-full"
+            >
+              جدید
+            </div>
+          </div>
+          <div class="flex flex-col gap-y-2 px-1">
+            <div class="flex justify-between items-center">
+              <span class="text-dark text-sm font-bold">نام محصول</span>
+              <span class="text-slate text-xs">سایز: M</span>
+            </div>
+            <div class="flex gap-x-1.5">
+              <div
+                class="w-3.5 h-3.5 rounded-full bg-dark ring-1 ring-offset-1 ring-dark"
+              ></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-slate"></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-sage"></div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sage text-sm font-bold">۴۵۰,۰۰۰ تومان</span>
+              <button>
+                <img
+                  src="/assets/icons/shopping-bag.svg"
+                  alt="افزودن"
+                  class="w-6 h-6"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- کارت ۲ -->
+        <div class="flex flex-col gap-y-2 group">
+          <div
+            class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-50"
+          >
+            <img
+              src="/assets/images/sina-malek-aMPqIrcEgIE-unsplash-compressed 1.jpg"
+              alt="نام محصول"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute top-3 right-3 bg-sage text-white text-xs px-2 py-0.5 rounded-full"
+            >
+              تخفیف
+            </div>
+          </div>
+          <div class="flex flex-col gap-y-2 px-1">
+            <div class="flex justify-between items-center">
+              <span class="text-dark text-sm font-bold">نام محصول</span>
+              <span class="text-slate text-xs">سایز: M</span>
+            </div>
+            <div class="flex gap-x-1.5">
+              <div
+                class="w-3.5 h-3.5 rounded-full bg-dark ring-1 ring-offset-1 ring-dark"
+              ></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-slate"></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-sage"></div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sage text-sm font-bold">۴۵۰,۰۰۰ تومان</span>
+              <button>
+                <img
+                  src="/assets/icons/shopping-bag.svg"
+                  alt="افزودن"
+                  class="w-6 h-6"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- کارت ۳ -->
+        <div class="flex flex-col gap-y-2 group">
+          <div
+            class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-50"
+          >
+            <img
+              src="/assets/images/sina-malek-aMPqIrcEgIE-unsplash-compressed 1.jpg"
+              alt="نام محصول"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="flex flex-col gap-y-2 px-1">
+            <div class="flex justify-between items-center">
+              <span class="text-dark text-sm font-bold">نام محصول</span>
+              <span class="text-slate text-xs">سایز: M</span>
+            </div>
+            <div class="flex gap-x-1.5">
+              <div
+                class="w-3.5 h-3.5 rounded-full bg-dark ring-1 ring-offset-1 ring-dark"
+              ></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-slate"></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-sage"></div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sage text-sm font-bold">۴۵۰,۰۰۰ تومان</span>
+              <button>
+                <img
+                  src="/assets/icons/shopping-bag.svg"
+                  alt="افزودن"
+                  class="w-6 h-6"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- کارت ۴ -->
+        <div class="flex flex-col gap-y-2 group">
+          <div
+            class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-50"
+          >
+            <img
+              src="/assets/images/sina-malek-aMPqIrcEgIE-unsplash-compressed 1.jpg"
+              alt="نام محصول"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="flex flex-col gap-y-2 px-1">
+            <div class="flex justify-between items-center">
+              <span class="text-dark text-sm font-bold">نام محصول</span>
+              <span class="text-slate text-xs">سایز: M</span>
+            </div>
+            <div class="flex gap-x-1.5">
+              <div
+                class="w-3.5 h-3.5 rounded-full bg-dark ring-1 ring-offset-1 ring-dark"
+              ></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-slate"></div>
+              <div class="w-3.5 h-3.5 rounded-full bg-sage"></div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sage text-sm font-bold">۴۵۰,۰۰۰ تومان</span>
+              <button>
+                <img
+                  src="/assets/icons/shopping-bag.svg"
+                  alt="افزودن"
+                  class="w-6 h-6"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- فوتر -->
+    <footer class="bg-dark mt-16 -m-8">
+      <div class="flex flex-col gap-y-8 p-6">
+        <!-- لوگو و توضیح -->
+        <div class="flex flex-col gap-y-3">
+          <h2 class="text-white font-fat text-2xl">وستـو</h2>
+          <p class="text-white/50 text-xs leading-relaxed">
+            سبکی که حرف می‌زنه — پوشاک مینیمال برای امروز
+          </p>
+        </div>
+
+        <!-- خط جدا کننده -->
+        <div class="w-full h-px bg-white/10"></div>
+
+        <!-- شبکه‌های اجتماعی -->
+        <div class="flex flex-col gap-y-3">
+          <span class="text-white/30 text-xs tracking-widest"
+            >ما را دنبال کنید</span
+          >
+          <div class="flex gap-x-4">
+            <a href="#" class="flex items-center gap-x-2 group">
+              <div
+                class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center group-hover:border-sage transition-colors duration-300"
+              >
+                <img
+                  src="/assets/icons/instagram.svg"
+                  alt="اینستاگرام"
+                  class="w-4 h-4"
+                />
+              </div>
+            </a>
+            <a href="#" class="flex items-center gap-x-2 group">
+              <div
+                class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center group-hover:border-sage transition-colors duration-300"
+              >
+                <img
+                  src="/assets/icons/facebook.svg"
+                  alt="تلگرام"
+                  class="w-4 h-4"
+                />
+              </div>
+            </a>
+            <a href="#" class="flex items-center gap-x-2 group">
+              <div
+                class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center group-hover:border-sage transition-colors duration-300"
+              >
+                <img
+                  src="/assets/icons/xrp-(xrp).svg"
+                  alt="ایکس"
+                  class="w-4 h-4"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- خط جدا کننده -->
+        <div class="w-full h-px bg-white/10"></div>
+
+        <!-- آدرس -->
+        <div class="flex flex-col gap-y-3">
+          <span class="text-white/30 text-xs tracking-widest">آدرس</span>
+          <div class="flex flex-col gap-y-2">
+            <p class="text-white/70 text-xs leading-relaxed">
+              تهران، خیابان ولیعصر، پلاک ۱۲۳
+            </p>
+            <a href="tel:+989121234567" class="text-sage text-xs">
+              ۰۹۱۲-۱۲۳-۴۵۶۷
+            </a>
+          </div>
+        </div>
+
+        <!-- خط جدا کننده -->
+        <div class="w-full h-px bg-white/10"></div>
+
+        <!-- کپی‌رایت -->
+        <div class="flex justify-between items-center">
+          <span class="text-white/30 text-xs"> © ۱۴۰۴ وستـو </span>
+          <span class="text-white/30 text-xs"> تمامی حقوق محفوظ است </span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
