@@ -22,3 +22,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.*
+.env.local
+
+# Binaries
+*.exe
+mimo.exe
+
+# Build output (untrack from git)
+dist/
+dist-ssr/
+
+# MiMo Code
+.mimocode/
